@@ -1,4 +1,4 @@
-# Celestial Remote Administration Tool Source Code
+# Celestial Remote Administration Tool
 
 ## About
 This repo contains both source code and compiled version of leaked Celestial Remote Administration Tool with fixes, related to remote desktop and camera proper functioning and builder.
