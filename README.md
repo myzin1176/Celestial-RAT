@@ -27,3 +27,6 @@ You can also build the project from sources given in this repo.
 
 ## Support
 Make to sure to star this repo if you found it useful!
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/myzin1176/Celestial-RAT/blob/main/LICENSE) file for details
