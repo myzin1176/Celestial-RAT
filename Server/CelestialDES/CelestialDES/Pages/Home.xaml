@@ -1,0 +1,145 @@
+﻿<Page x:Class="CelestialDES.Pages.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CelestialDES.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="Home" Loaded="Page_Loaded">
+    <Border CornerRadius="5" Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="140"/>
+                <RowDefinition Height="140*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Column="0" Grid.Row="1" Margin="9 6 3 6" CornerRadius="20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,2"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#4B86F1"
+                                      Offset="0.1"/>
+                        <GradientStop Color="#4EE4A8"
+                                      Offset="0.9"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="96">
+                    <Path
+                           Width="124" Height="103"
+                           Fill="{DynamicResource FourthIconColor}"
+                           Stretch="Fill"
+                           Data="{DynamicResource customers}" RenderTransformOrigin="0.553,0.495"
+                          />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="Clients" FontSize="25" Grid.Column="0" Grid.Row="1" Margin="32 10 3 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Text="{Binding Path=ClientsConnected}" FontSize="25" Grid.Column="0" Grid.Row="1" Margin="32 80 3 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Border Grid.Column="1" Grid.Row="1" Margin="6 6 6 6" CornerRadius="20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,2"
+                                         EndPoint="1,1">
+                        <GradientStop Color="#404B74"
+                                      Offset="0.5"/>
+                        <GradientStop Color="#7060B8"
+                                      Offset="0.9"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Margin="0,15,15,0" Height="110">
+                    <Path
+                           Width="124" Height="103"
+                           Fill="{DynamicResource FourthIconColor}"
+                           Stretch="Fill"
+                           Data="{DynamicResource Server}" RenderTransformOrigin="0.553,0.495"
+                          >
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-8.65"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="Servers" FontSize="25" Grid.Column="1" Grid.Row="1" Margin="29 10 6 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Text="{Binding Path=ServersForwarding}" FontSize="25" Grid.Column="1" Grid.Row="1" Margin="32 80 3 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <Border Grid.Column="2" Grid.Row="1" Margin="3 6 9 6" CornerRadius="20">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,2"
+                                         EndPoint="1,1">
+                        <GradientStop Color="Purple"
+                                      Offset="0.5"/>
+                        <GradientStop Color="Yellow"
+                                      Offset="1.5"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Width="130" Height="96">
+                    <Path
+                           Width="100" Height="90"
+                           Fill="{DynamicResource FourthIconColor}"
+                           Stretch="Fill"
+                           Data="{DynamicResource key}" RenderTransformOrigin="0,0"
+                          />
+                </StackPanel>
+            </Border>
+
+            <TextBlock Text="Logs" FontSize="25" Grid.Column="2" Grid.Row="1" Margin="29 10 6 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock Text="{Binding Path=LogsCount}" FontSize="25" Grid.Column="2" Grid.Row="1" Margin="32 80 3 6" Foreground="White">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76" BlurRadius="25"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <ListBox x:Name="Logs_Listbox" Grid.Row="2" Grid.ColumnSpan="3" Margin="116,35,116,41" Background="{DynamicResource SecundaryBackgroundColor}"
+                     FontSize="12" Foreground="{DynamicResource PrimaryTextColor}" VirtualizingPanel.IsContainerVirtualizable="True"
+                     VirtualizingPanel.IsVirtualizing="True"
+                     VirtualizingPanel.IsVirtualizingWhenGrouping="True"/>
+            <Border Grid.Row="2" Grid.ColumnSpan="3" Margin="116,35,116,41" BorderBrush="White" BorderThickness="1">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"
+                                      Color="White"
+                          Opacity="1"
+                          RenderingBias="Quality"
+                          BlurRadius="8"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+    </Border>
+</Page>

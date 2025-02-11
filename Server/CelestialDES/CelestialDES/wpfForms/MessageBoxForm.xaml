@@ -1,0 +1,90 @@
+﻿<Window x:Class="CelestialDES.wpfForms.MessageBoxForm"
+   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MessageBox" Height="145" Width="330"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins">
+    <Border Background="{DynamicResource PrimaryBackgroundColor}" BorderBrush="{DynamicResource SecundaryBackgroundColor}" BorderThickness="1">
+        <Grid Margin="0,0,0,-1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,2,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Grid.ColumnSpan="2" Width="300" MouseMove="StackPanel_MouseMove">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Tag="IsCloseButton" Cursor="Hand" Click="btnClose_Click"/>
+                <TextBlock Text="Message box"
+                       Foreground="{DynamicResource PrimaryTextColor}"
+                        FontWeight="Bold"
+                        FontSize="14" Width="95"
+                        VerticalAlignment="Center" Margin="2 0 0 0">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+
+            <TextBox Text="Title" Name="TextBox_T" FontSize="11" Grid.ColumnSpan="2" Margin="135,31,3,82" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Button HorizontalAlignment="Center" Margin="0,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.076,-0.1" Width="120" Click="Button_Click" Grid.Column="1" Height="19">
+                <Button.Content>
+                    <TextBlock Margin="0 0 0 0" Foreground="{DynamicResource PrimaryTextColor}">Send</TextBlock>
+                </Button.Content>
+            </Button>
+            <TextBox Text="Content" x:Name="TextBox_C" Grid.ColumnSpan="2" FontSize="11" Margin="135,69,3,45" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <ComboBox Name="ComboIcon" Margin="5,34,198,87" Grid.ColumnSpan="2" IsReadOnly="True">
+                <ComboBoxItem Content="None"></ComboBoxItem>
+                <ComboBoxItem Content="Error"></ComboBoxItem>
+                <ComboBoxItem Content="Information"></ComboBoxItem>
+                <ComboBoxItem Content="Warning"></ComboBoxItem>
+                <ComboBoxItem Content="Question"></ComboBoxItem>
+            </ComboBox>
+            <TextBlock Text="Icon"
+                Foreground="{DynamicResource PrimaryTextColor}"
+                FontWeight="Bold"
+                FontSize="10" Grid.ColumnSpan="2" Margin="5,21,198,109">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <ComboBox Name="ComboButton" Margin="5,72,198,49" Grid.ColumnSpan="2" IsReadOnly="True">
+                <ComboBoxItem Content="About Retry Ignore"/>
+                <ComboBoxItem Content="Ok"/>
+                <ComboBoxItem Content="Ok cancel"/>
+                <ComboBoxItem Content="Retry cancel"/>
+                <ComboBoxItem Content="Yes no"/>
+                <ComboBoxItem Content="Yes no cancel"/>
+            </ComboBox>
+            <TextBlock
+                Foreground="{DynamicResource PrimaryTextColor}"
+                FontWeight="Bold"
+                FontSize="10" Grid.ColumnSpan="2" Margin="5,61,198,69" Text="Buttons">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+
+    </Border>
+</Window>

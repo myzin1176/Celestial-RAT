@@ -1,0 +1,193 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CelestialDES.Pages"
+      xmlns:Controls="clr-namespace:CelestialDES.Controls" x:Class="CelestialDES.Pages.Clients"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Clients">
+    <Border Background="{DynamicResource SecundaryBackgroundColor}" BorderBrush="White" BorderThickness="0.4">
+        <Grid>
+            <Border Background="Transparent" BorderBrush="White" BorderThickness="0.4">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"
+                                      Color="White"
+                          Opacity="1"
+                          RenderingBias="Quality"
+                          BlurRadius="8"/>
+                </Border.Effect>
+            </Border>
+            <Border Background="Transparent" BorderBrush="White" BorderThickness="0.4">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="0"
+                                      Color="White"
+                          Opacity="1"
+                          RenderingBias="Quality"
+                          BlurRadius="8"/>
+                </Border.Effect>
+            </Border>
+            <ListView x:Name="ListViewU" SelectionMode="Single" SelectionChanged="ListViewU_SelectionChanged" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}" BorderBrush="White" Opacity="0.5" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,0,0,0">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel VirtualizingPanel.IsVirtualizing="True" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.Resources>
+                    <Style TargetType="{x:Type GridViewColumnHeader}">
+                        <Setter Property="Background" Value="{DynamicResource SecundaryBackgroundColor}"/>
+                        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextColor}"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Opacity" Value=".6"/>
+                    </Style>
+                </ListView.Resources>
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="20"/>
+                        <GridViewColumn Header="IP" DisplayMemberBinding="{Binding IP}" Width="65"/>
+                        <GridViewColumn Header="Tag" DisplayMemberBinding="{Binding Tag}" Width="60"/>
+                        <GridViewColumn Header="Anti-Virus" DisplayMemberBinding="{Binding AV}" Width="100"/>
+                        <GridViewColumn Header="Operating System" DisplayMemberBinding="{Binding OS}" Width="125"/>
+                        <GridViewColumn Header="CPU" DisplayMemberBinding="{Binding CPU}" Width="115"/>
+                        <GridViewColumn Header="GPU" DisplayMemberBinding="{Binding GPU}" Width="115"/>
+                        <GridViewColumn Header="Country" DisplayMemberBinding="{Binding Country}" Width="80"/>
+                        <GridViewColumn Header="Privileges" DisplayMemberBinding="{Binding Privileges}" Width="85" />
+                        <GridViewColumn Header="Version" DisplayMemberBinding="{Binding Version}" Width="60" />
+                        <GridViewColumn Header="RootKit" DisplayMemberBinding="{Binding isRoot}" Width="50"/>
+                        <GridViewColumn Header="Screen Metrics" DisplayMemberBinding="{Binding SMet}" Width="95"/>
+                    </GridView>
+                </ListView.View>
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListViewItem}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderThickness" Value="1" />
+                            </Trigger>
+
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="BorderThickness" Value="1" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ListView.ItemContainerStyle>
+
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="  Client">
+                            <MenuItem Header="    Elevate client permissions">
+                                <MenuItem Header="Default (Run As)" Click="Elevate_Click"/>
+                                <MenuItem Header="    Bypass">
+                                    <MenuItem Header="cmstp" Click="ElevateS_Click"/>
+                                    <MenuItem Header="ComputerDefaults" Click="ElevateC_Click"/>
+                                </MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="Rootkit" Click="rKit_install"/>
+                            <MenuItem Header="Uninstall" Click="Uninstall_Click"/>
+                            <MenuItem Header="Kill" Click="Kill_Click"/>
+                            <MenuItem Header="Update" Click="Update_Click"/>
+                            <MenuItem Header="Disconnect" Click="Disconnect_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="  User Interaction">
+                            <MenuItem Header="Send Messagebox" Click="MsgBox_Click"/>
+                            <MenuItem Header="Send TTS" Click="TTS_Click"/>
+                            <MenuItem Header="Notepad" Click="Notepad_Click"/>
+                            <MenuItem Header="Visit website" Click="WebsiteVisit_Click"/>
+                            <MenuItem Header="Remote Chat" Click="RChat_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="  Miscellaneous">
+                            <MenuItem Header="    Upload And execute">
+                                <MenuItem Header="From link" Click="FromLinkExecute_Click"/>
+                                <MenuItem Header="From disk" Click="FromDiskExecute_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Change desktop wallpaper" Click="ChangeDesktopWall_Click"/>
+                            <MenuItem Header="Task manager" Click="TaskMGR_Click"/>
+                            <MenuItem Header="Winlock" Click="winlock_Click"/>
+                            <MenuItem Header="Remote Shell" Click="RShell_Click"/>
+                            <MenuItem Header="Scripting" Click="VBS_Script_Click"/>
+                            <MenuItem Header="FileManager" Click="FM_Click"/>
+                            <MenuItem Header="Startup manager" Click="GS_Click"/>
+                            <MenuItem Header="Network manager" Click="NW_Click"/>
+                            <MenuItem Header="Edit hosts" Click="HS_Click"/>
+                            <MenuItem Header="Hidden RDP" Click="HRDP_Click"/>
+                            <MenuItem Header="Execute C# script" Click="csharpscript_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="  Surveillance">
+                            <MenuItem Header="Remote Desktop" Click="RemoteDesktop_Click"/>
+                            <MenuItem Header="Remote Audio" Click="RemoteMicro_Click"/>
+                            <MenuItem Header="Remote Webcam" Click="RemoteCam_Click"/>
+                            <MenuItem Header="Password Recovery" Click="PassRecover_Click"/>
+                            <MenuItem Header="Hidden VNC" Click="hVNC_Click"/>
+                        </MenuItem>
+                        <MenuItem Header="  Fun">
+                            <MenuItem Header="   Rotate Screen">
+                                <MenuItem Header="0" Click="Rotate0Deg_Click"/>
+                                <MenuItem Header="90" Click="Rotate90Deg_Click"/>
+                                <MenuItem Header="180" Click="Rotate180Deg_Click"/>
+                                <MenuItem Header="270" Click="Rotate270Deg_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="   Keyboard layout">
+                                <MenuItem Header="QWERTY" Click="KeyQWERTY_Click"/>
+                                <MenuItem Header="QWERTZ" Click="KeyQWERTZ_Click"/>
+                                <MenuItem Header="AZERTY" Click="KeyAZERTY_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="   Mouse">
+                                <MenuItem Header="Swap" Click="Mswap_Click"/>
+                                <MenuItem Header="Restore" Click="Mrestore_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="   CD Drive">
+                                <MenuItem Header="Open" Click="CDOpen_Click"/>
+                                <MenuItem Header="Close" Click="CDClose_Click"/>
+                            </MenuItem>
+
+                            <MenuItem Header="   GDI">
+                                <MenuItem Header="Toggle color inverter" Click="Negative_Click"/>
+                                <MenuItem Header="Toggle gaussian blur" Click="Blur_Click"/>
+                                <MenuItem Header="Toggle radial blur" Click="Radial_Click"/>
+                                <MenuItem Header="Toggle rounded tunnel" Click="Tun_Click"/>
+                                <MenuItem Header="Toggle screen melter" Click="Melt_Click"/>
+                                <MenuItem Header="Toggle bloody screen" Click="Blood_Click"/>
+                            </MenuItem>
+                            <MenuItem Header="Trigger BSoD" Click="TBSoD_Click"/>
+                            <MenuItem Header="Beep" Click="Beep_Click"/>
+                            <MenuItem Header="Minimize all open windows" Click="MinimizeALL_Click"/>
+                        </MenuItem>
+
+                        <MenuItem Header="  System">
+                            <MenuItem Header="Information" Click="SysInfo_Click"/>
+                            <MenuItem Header="   Functions">
+                                <MenuItem Header="Toggle TaskMgr" Click="DisableTaskMGR_Click"/>
+                                <MenuItem Header="Toggle Registry" Click="DisableRegistry_Click"/>
+                                <MenuItem Header="Toggle UAC" Click="DisableUAC_Click"/>
+                                <MenuItem Header="Toggle Firewall" Click="DisableFirewall_Click"/>
+                                <MenuItem Header="Toggle Windows Defender" Click="DisableWinDef_Click"/>
+                                <MenuItem Header="Toggle CMD" Click="DisableCMD_Click"/>
+                                <MenuItem Header="Toggle Run" Click="DisableRun_Click"/>
+                                <MenuItem Header="Toggle WinKeys" Click="DisableWinKeys_Click"/>
+                            </MenuItem>
+
+                            <MenuItem Header="   Computer power">
+                                <MenuItem Header="Off" Click="Off_Click"/>
+                                <MenuItem Header="Restart" Click="Restart_Click"/>
+                            </MenuItem>
+
+                            <MenuItem Header="   Remove system">
+                                <MenuItem Header="Corrupt registry" Click="RegistryClean_Click"/>
+                                <MenuItem Header="Overwrite bootloader" Click="OMBR_Click"/>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Refresh users list" Click="Refresh_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+
+            </ListView>
+
+        </Grid>
+
+    </Border>
+
+</Page>

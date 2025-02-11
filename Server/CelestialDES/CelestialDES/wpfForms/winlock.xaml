@@ -1,0 +1,111 @@
+﻿<Window x:Class="CelestialDES.wpfForms.winlock"
+ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="Winlock" Height="230" Width="355"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins">
+    <Border Background="{DynamicResource PrimaryBackgroundColor}" BorderBrush="{DynamicResource SecundaryBackgroundColor}" BorderThickness="1">
+        <Grid Margin="0,0,-1,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,2,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Width="210" Grid.Column="1" MouseMove="StackPanel_MouseMove">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Content="{DynamicResource close}" Tag="IsCloseButton" Cursor="Hand" Click="btnClose_Click"/>
+                <TextBlock Text="Winlock"
+                       Foreground="{DynamicResource PrimaryTextColor}"
+                        FontWeight="Bold"
+                        FontSize="14" Width="95"
+                        VerticalAlignment="Center" Margin="2 0 0 0">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+
+            <TextBox Text="Windows Заблокирован" Name="TextBox_T" FontSize="12" Grid.ColumnSpan="2" Margin="2,39,85,160" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Button HorizontalAlignment="Left" Margin="2,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.076,-0.1" Width="120" Click="Button_Click" Grid.Column="1">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="{DynamicResource PrimaryTextColor}"><Run Text="Apply settings"/></TextBlock>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <TextBox Text="Внимане, Windows Заблокирован" FontSize="12" Height="28" x:Name="TextBox_T_Copy"  Grid.ColumnSpan="2" Margin="2,86,7,114" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Text="-" x:Name="TextBox_T_Copy1" Height="28" FontSize="12" Grid.ColumnSpan="2" Margin="2,119,8,81" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox Text="-" x:Name="TextBox_T_Copy2" FontSize="12" Height="28" Grid.ColumnSpan="2" Margin="2,152,7,48" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <Button HorizontalAlignment="Left" Margin="142,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.076,-0.1" Width="84" Click="Button_Click1" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0 0 0 0" Foreground="{DynamicResource PrimaryTextColor}"><Run Text="ON"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Left" Margin="247,199,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.076,-0.1" Width="92" Click="Button_Click2" Grid.Column="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0 0 0 0" Foreground="{DynamicResource PrimaryTextColor}"><Run Text="OFF"/></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBox Text="3" x:Name="TextBox_T_Copy3" FontSize="12" TextChanged="TextBox_T_Copy3_TextChanged" Grid.ColumnSpan="2" Margin="274,39,5,160" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBlock Text="Main label"
+                Foreground="{DynamicResource PrimaryTextColor}"
+                FontWeight="Bold"
+                FontSize="9" Grid.ColumnSpan="2" Margin="2,30,221,187">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Attempts"
+                Foreground="{DynamicResource PrimaryTextColor}"
+                FontWeight="Bold"
+                FontSize="9" Grid.ColumnSpan="2" Margin="275,30,6,189">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                </TextBlock.Effect>
+            </TextBlock>
+            <TextBlock Text="Reason for blocking"
+                Foreground="{DynamicResource PrimaryTextColor}"
+                FontWeight="Bold"
+                FontSize="9" Grid.ColumnSpan="2" Margin="2,71,221,141">
+                <TextBlock.Effect>
+                    <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </Grid>
+
+    </Border>
+</Window>

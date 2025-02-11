@@ -1,0 +1,49 @@
+﻿<Window x:Class="CelestialDES.wpfForms.TTSForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="Text to speech" Height="90" Width="240"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Background="Transparent" AllowsTransparency="True"
+        ResizeMode="NoResize" FontFamily="Poppins">
+    <Border Background="{DynamicResource PrimaryBackgroundColor}" BorderBrush="{DynamicResource SecundaryBackgroundColor}" BorderThickness="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,2,2,0" Height="30" Orientation="Horizontal" FlowDirection="RightToLeft" Width="220" Grid.Column="1" MouseMove="StackPanel_MouseMove">
+                <Button x:Name="btnClose" Style="{StaticResource IconButtonsStyle}" Margin="2,0,0,0" Content="{DynamicResource close}" Tag="IsCloseButton" Cursor="Hand" Click="btnClose_Click"/>
+                <TextBlock Text="Text to speech"
+                       Foreground="{DynamicResource PrimaryTextColor}"
+                        FontWeight="Bold"
+                        FontSize="14" Width="95"
+                        VerticalAlignment="Center" Margin="2 0 0 0">
+                    <TextBlock.Effect>
+                        <DropShadowEffect ShadowDepth="0" Color="#FF001B76"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+
+            <TextBox Text="Hello, you are controlled by Celestial" FontSize="11" Name="TextBox_P" Grid.ColumnSpan="2" Margin="5,33,5,27" Background="{DynamicResource SecundaryBackgroundColor}" Foreground="{DynamicResource PrimaryTextColor}">
+                <TextBox.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+
+            <Button HorizontalAlignment="Left" Margin="56,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.076,-0.1" Width="120" Click="Button_Click" Grid.Column="1">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Foreground="{DynamicResource PrimaryTextColor}"><Run Text="Send"/></TextBlock>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+    </Border>
+</Window>

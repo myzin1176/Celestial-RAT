@@ -1,0 +1,62 @@
+﻿<Page x:Class="CelestialDES.Pages.Builder"
+       xmlns:ctls="clr-namespace:CelestialDES.Controls"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Builder">
+
+    <Border Background="{DynamicResource SecundaryBackgroundColor}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="{DynamicResource ContextMenuBackgroundColor}">
+                <Grid x:Name="GridNav" Width="60">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="1" Margin="-1 40 0 20">
+                        <Button x:Name="btnGeneral" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnGeneral_MouseEnter" MouseLeave="btnGeneral_MouseLeave" Click="btnGeneral_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BGeneral}" IconWidth="16" Text="General" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnConnection" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnConnection_MouseEnter" MouseLeave="btnConnection_MouseLeave" Click="btnConnection_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BConnection}" IconWidth="16" Text="Connection" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnInstall" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnInstall_MouseEnter" MouseLeave="btnInstall_MouseLeave" Click="btnInstall_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BInstall}" IconWidth="16" Text="Install" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnHosts" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnHosts_MouseEnter" MouseLeave="btnHosts_MouseLeave" Click="btnHosts_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource HostsEditor}" IconWidth="16" Text="Hosts" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnMisc" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnMisc_MouseEnter" MouseLeave="btnMisc_MouseLeave" Click="btnMisc_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BMisc}" IconWidth="16" Text="Miscellaneous" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnAssembly" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnAssembly_MouseEnter" MouseLeave="btnAssembly_MouseLeave" Click="btnAssembly_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BAssembly}" IconWidth="16" Text="Assembly" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                        <Button x:Name="btnFinal" Style="{DynamicResource PopupButtonStyle}"  MouseEnter="btnFinal_MouseEnter" MouseLeave="btnFinal_MouseLeave" Click="btnFinal_Click">
+                            <ctls:MenuItem GroupName="MenuItem" IndicatorBrush="{DynamicResource PrimaryBlueColor}" Icon="{DynamicResource BFinal}" IconWidth="16" Text="Final" VerticalAlignment="Center" Height="50"/>
+                        </Button>
+                    </StackPanel>
+
+                    <Popup x:Name="Popup"  AllowsTransparency="True"  HorizontalOffset="0" VerticalOffset="10">
+                        <ctls:UserPopup x:Name="Header" Foreground="{DynamicResource PrimaryTextColor}"/>
+                    </Popup>
+                </Grid>
+            </Border>
+
+            <Grid Grid.Column="1">
+                <Frame Grid.Row="1"
+                       Name="fContainer"
+                       Margin="20"
+                       NavigationUIVisibility="Hidden">
+                </Frame>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

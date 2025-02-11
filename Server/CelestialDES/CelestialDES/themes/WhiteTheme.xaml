@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Background Colors -->
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#856E6E6E"/>
+    <SolidColorBrush x:Key="SecundaryBackgroundColor" Color="#856E6E6E"/>
+    <SolidColorBrush x:Key="ContextMenuBackgroundColor" Color="#856E6E6E"/>
+
+
+    <!-- Primary Colors -->
+    <SolidColorBrush x:Key="PrimaryBlueColor" Color="#A9A9A9"/>
+
+    <!-- Typograhy Colors -->
+    <SolidColorBrush x:Key="PrimaryTextColor" Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="TextSecundaryColor" Color="Gray"/>
+    <SolidColorBrush x:Key="TextTertiaryColor" Color="Gray"/>
+    <SolidColorBrush x:Key="TextFourthColor" Color="Gray"/>
+
+    <!-- Icon Colors -->
+    <SolidColorBrush x:Key="PrimaryIconColor" Color="#ACC1D8"/>
+    <SolidColorBrush x:Key="SecundaryIconColor" Color="#9DB2C7"/>
+    <SolidColorBrush x:Key="TertiarIconyColor" Color="#718EAC"/>
+    <SolidColorBrush x:Key="FourthIconColor" Color="#5F778B"/>
+
+    <SolidColorBrush x:Key="btnClose" Color="#9A1515"/>
+
+</ResourceDictionary>
